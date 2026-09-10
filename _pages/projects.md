@@ -1,65 +1,32 @@
 ---
 layout: page
-title: projects
-permalink: /projects/
-description: A growing collection of your cool projects.
+title: research
+permalink: /research/
+description: Selected research and research infrastructure.
 nav: true
-nav_order: 3
-display_categories: [work, fun]
-horizontal: false
+nav_order: 2
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
+<div class="minimal-page">
+  <p class="minimal-lead">My work sits between economic questions and the measurement systems needed to answer them.</p>
+
+  <div class="minimal-list">
+    <article class="minimal-item">
+      <h2>Housing and urban upgrading</h2>
+      <p>A multi-year satellite-imagery workflow for informal settlements in Kenya. The workflow covers settlement boundaries, tile retrieval, mosaicking, area-of-interest cropping, quality checks, and fixed-location comparisons across time.</p>
+      <p class="minimal-meta">Urban economics · Housing · Remote sensing</p>
+    </article>
+
+    <article class="minimal-item">
+      <h2>Urban Evidence Observatory</h2>
+      <p>A private, analysis-first literature observatory for urban economics. It links paper metadata, abstracts, methods and data signals, and citation-network structure to support research discovery and research-pitch development.</p>
+      <p class="minimal-meta">Literature review · Citation networks · Research systems</p>
+    </article>
+
+    <article class="minimal-item">
+      <h2>Research assistant work</h2>
+      <p>I contribute to empirical research through data construction and audits, geospatial processing, literature synthesis, reproducible workflows, and lightweight dashboards for exploring evidence.</p>
+      <p class="minimal-meta">Applied microeconomics · Data work · Reproducibility</p>
+    </article>
   </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
-
-{% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
 </div>
